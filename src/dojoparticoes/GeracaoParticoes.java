@@ -97,7 +97,6 @@ public class GeracaoParticoes {
                 }
                 
                 memoria.get(posicao).salva(particao);
-                int codSalvo = memoria.get(posicao).codCliente;
                 congelado.remove(posicao);
                 memoria.remove(posicao);
                 //Esta removendo quem foi escrito antes de comparar quem entrou
@@ -106,7 +105,7 @@ public class GeracaoParticoes {
                     HIV = leitor.readInt();
                     if (HIV != Integer.MAX_VALUE) {
                         monique = new Cliente(HIV, leitor.readUTF());
-                        if (codSalvo > monique.codCliente) {
+                        if (menor > monique.codCliente) {
                             memoria.add(monique);
                             congelado.add(true);
                         }
